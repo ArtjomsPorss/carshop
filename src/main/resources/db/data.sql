@@ -1,2 +1,7 @@
 INSERT INTO car VALUES (1, 'Ford', 'Focus', '2.0 CDTI Bi-Turbo ecoFLEX S/S', 32000.00); 
 INSERT INTO car VALUES (2, 'Opel', 'Insignia', '2.0 CDTI Bi-Turbo ecoFLEX S/S', 30000.00);
+INSERT INTO car VALUES (3, 'Volkswagen', 'ID.3', 'Pro S', 42000.00);
+INSERT INTO car VALUES (4, 'Mercedes', 'GLA SUV', '2.0 CDTI Bi-Turbo ecoFLEX S/S', 34500.00);
+INSERT INTO car VALUES (5, 'Nissan', 'GT-R', '3.8L DOHC 24-valve Twin-Turbo', 113540.00);
+INSERT INTO car VALUES (6, 'Porsche', 'Panamera', 'E-Performance', 87200.00);
+INSERT INTO car VALUES (7, 'BMW', 'M8', 'Coupe', 133000.00);
