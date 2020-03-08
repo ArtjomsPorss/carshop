@@ -9,5 +9,8 @@ public interface CarRepository extends Repository <Car, Integer> {
 	
 	@Transactional(readOnly = true)
 	List<Car> findAll();
+	
+	@Transactional
+	Car findById(Integer id);
 
 }

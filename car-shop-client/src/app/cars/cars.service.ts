@@ -7,12 +7,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CarsService {
+  private getCarUrl = '/car/';
+  private getCarsUrl = '/allcars';
+
   constructor(private http: HttpClient) { }
 
-  getCarsUrl = '/allcars';
 
 
   getCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.getCarsUrl);
+  }
+
+  getCar(id: number): Observable<Car> {
+    const url = `${this.getCarUrl}/${id}`;
+    return this.http.get<Car>(url);
   }
 }

@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,9 +21,14 @@ public class CarController {
 	@GetMapping("/allcars")
 	public @ResponseBody List<Car> cars() {
 		List<Car> cars = carRepo.findAll();
-
 		logger.info(String.format("AMOUNT OF CARS: %d", cars.size()));
-
 		return cars;
+	}
+	
+	@GetMapping("/car/{carId}")
+	public @ResponseBody Car getCar(@PathVariable("carId") Integer carId) {
+		Car car = carRepo.findById(carId);
+		logger.info(String.format("AMOUNT OF CARS: %s", car));
+		return car;
 	}
 }
