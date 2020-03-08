@@ -1,6 +1,5 @@
 package com.artjomporsh.carshop.car;
 
-import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.repository.Repository;

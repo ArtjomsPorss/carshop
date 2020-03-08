@@ -1,1 +1,11 @@
-<p>cars works!</p>
+<div class="content">
+<h2>Cars</h2>
+<div class="card-container" *ngIf="cars">
+    <div class="card card-medium" *ngFor="let car of cars">
+        <h3>{{car.make}}</h3>
+        <h4>{{car.model}}</h4>
+        <p>{{car.edition}}</p>
+        <p><span>€ </span>{{car.price}}</p>
+    </div>    
+</div>
+</div>

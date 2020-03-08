@@ -1,6 +1,11 @@
-<h1>Car Shop</h1>
-<nav>
-  <a routerLink="cars" routerLinkActive="active">All Cars</a>
-  <a routerLink="new-car" routerLinkActive="active">Add Car</a>
-</nav>
-<router-outlet></router-outlet>
+<div class="toolbar" role="banner">
+  <span><h2>Car Shop</h2></span>
+  <nav>
+    <a routerLink="cars" routerLinkActive="active">All Cars</a>
+    <a routerLink="new-car" routerLinkActive="active">Add a Car</a>
+  </nav>
+</div>
+<div class="content" role="main">
+  <router-outlet></router-outlet>
+</div>
+
