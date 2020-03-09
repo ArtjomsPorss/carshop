@@ -1,12 +1,21 @@
 <div class="content">
     <h2>Car Details</h2>
-    <div class="card-container" *ngIf="car">
-        <div class="card card-medium">
+    <div  *ngIf="car">
+        <div  *ngIf="!editing">
             <h3>{{car.make}}</h3>
             <h4>{{car.model}}</h4>
             <p>{{car.edition}}</p>
             <p><span>€ </span>{{car.price}}</p>
-            <button (click)="goBack()">Go Back</button>
+            <button routerLink="/cars">Back to Cars</button>
+            <button (click)="edit()">Edit</button>
+        </div>    
+        <div  *ngIf="editing">
+            <h3><label>Make: </label><input [(ngModel)]="car.make" placeholder="make"/></h3>
+            <h3><label>Model: </label><input [(ngModel)]="car.model" placeholder="model"/></h3>
+            <h3><label>Edition: </label><input [(ngModel)]="car.edition" placeholder="edition"/></h3>
+            <h3><label>Price: € </label><input [(ngModel)]="car.price" placeholder="price"/></h3>
+            <button routerLink="/car/{{car.id}}" (click)="finishEditing()">Cancel</button>
+            <button routerLink="/car/{{car.id}}" (click)="updateEdits()">Update</button>
         </div>    
     </div>
 </div>

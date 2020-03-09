@@ -4,12 +4,16 @@ import { CarsService } from '../cars/cars.service';
 import { Location } from '@angular/common';
 import { Car } from './Car';
 
+
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
+
+  car: Car;
+  editing: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,7 +25,6 @@ export class CarComponent implements OnInit {
     this.getCar();
   }
 
-  car: Car;
 
   getCar() : void {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -32,5 +35,21 @@ export class CarComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  edit(): void {
+    this.editing = true;
+  }
+  finishEditing(): void {
+    this.editing = false;
+  }
+
+  updateEdits(): void {
+    console.info("update edits is called");
+    this.finishEditing();
+    this.carsService.updateCarDetails(this.car)
+      .subscribe(article => {console.log(article)});
+  }
+
+
 
 }
