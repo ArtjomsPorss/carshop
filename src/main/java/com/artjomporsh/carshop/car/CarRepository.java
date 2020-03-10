@@ -15,7 +15,7 @@ public interface CarRepository extends Repository <Car, Integer> {
 	Car findById(Integer id);
 	
 	@Transactional
-	void save(Car car) throws DataAccessException;
+	Car save(Car car) throws DataAccessException;
 	
 
 }

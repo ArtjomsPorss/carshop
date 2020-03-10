@@ -39,4 +39,12 @@ public class CarController {
 		logger.info(String.format("Update Car: %s", car));
 		carRepo.save(car);
 	}
+	
+	@PostMapping("/new-car")
+	public @ResponseBody Car newCar(@RequestBody Car car) {
+		logger.info(String.format("Save Car: %s", car));
+		return carRepo.save(car);
+	}
+	
+	
 }

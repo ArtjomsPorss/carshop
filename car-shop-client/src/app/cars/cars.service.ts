@@ -10,10 +10,9 @@ export class CarsService {
   private getCarUrl = '/car/';
   private getCarsUrl = '/allcars';
   private postUpdateCarDetails = '/updateCarDetails';
+  private saveCarUrl = '/new-car';
   
   constructor(private http: HttpClient) { }
-  
-  
   
   getCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.getCarsUrl);
@@ -27,5 +26,10 @@ export class CarsService {
   updateCarDetails(car: Car): Observable<Car> {
     console.log(car);
     return this.http.post<Car>(this.postUpdateCarDetails, car);
+  }
+
+  saveCar(car: Car): Observable<Car> {
+    console.log(car);
+    return this.http.post<Car>(this.saveCarUrl, car);
   }
 }
