@@ -17,5 +17,7 @@ public interface CarRepository extends Repository <Car, Integer> {
 	@Transactional
 	Car save(Car car) throws DataAccessException;
 	
-
+	@Transactional
+	void delete(Car car);
+	
 }

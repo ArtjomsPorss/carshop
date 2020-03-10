@@ -8,6 +8,7 @@
             <p><span>€ </span>{{car.price}}</p>
             <button routerLink="/cars">Back to Cars</button>
             <button (click)="edit()">Edit</button>
+            <button (click)="delete()">Delete</button>
         </div>    
         <div  *ngIf="editing">
             <h3><label>Make: </label><input [(ngModel)]="car.make" placeholder="make"/></h3>

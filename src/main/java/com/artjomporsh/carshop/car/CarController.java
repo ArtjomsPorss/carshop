@@ -46,5 +46,11 @@ public class CarController {
 		return carRepo.save(car);
 	}
 	
+	@PostMapping("/delete-car")
+	public void deleteCar(@RequestBody Car car) {
+		logger.info(String.format("Save Car: %s", car));
+		carRepo.delete(car);
+	}
+	
 	
 }

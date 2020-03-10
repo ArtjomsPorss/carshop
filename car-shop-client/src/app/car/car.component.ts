@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarsService } from '../cars/cars.service';
 import { Location } from '@angular/common';
 import { Car } from './Car';
@@ -18,7 +18,8 @@ export class CarComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private carsService: CarsService,
-    private location: Location
+    private location: Location,
+    private router: Router,
     ) { }
 
   ngOnInit(): void {
@@ -50,6 +51,13 @@ export class CarComponent implements OnInit {
       .subscribe(article => {console.log(article)});
   }
 
+  delete(): void {
+    this.carsService.deleteCar(this.car).subscribe();
+    this.goToCars();
+  }
 
+  goToCars() {
+    this.router.navigate(['/cars'], { relativeTo: this.route });
+  }
 
 }
