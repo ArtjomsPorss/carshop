@@ -1,0 +1,10 @@
+<div>
+    <select (change)="select($event.target.value)"> 
+        <option value="0">Select an Option</option>
+        <option *ngFor="let option of options" value={{option.id}}>
+            {{option.name}}
+        </option>
+    </select>
+    <button *ngIf="!added" (click)="add">Add</button>
+    <button *ngIf="added" (click)="remove">Remove</button>
+</div>

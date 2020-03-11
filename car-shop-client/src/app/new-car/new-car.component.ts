@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { Car } from '../car/Car';
 import { CarsService } from '../cars/cars.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OptionService } from '../option/option.service';
 import { Option } from "../option/Option";
+import { OptionHostDirective } from '../option/option-host.directive';
+import { OptionComponent } from '../option/option.component';
 
 @Component({
   selector: 'app-new-car',
@@ -13,18 +15,20 @@ import { Option } from "../option/Option";
 export class NewCarComponent implements OnInit {
 
   car: Car;
-  options: Option[];
+  selectedOptions: Option[];
+  @ViewChild(OptionHostDirective, {static: true}) optionHost: OptionHostDirective;
 
   constructor(
     private carsService: CarsService,
     private router: Router,
     private route: ActivatedRoute,
-    private optionService: OptionService
+    private optionService: OptionService,
+    private componentFactoryResolver: ComponentFactoryResolver,
     ) { }
 
   ngOnInit(): void {
     this.resetCarDetails();
-    this.getAllOptions();
+    this.loadCarOptions();
   }
   
   resetCarDetails(): void {
@@ -46,8 +50,13 @@ export class NewCarComponent implements OnInit {
     this.router.navigate([`/car/${this.car.id}`], { relativeTo: this.route });
   }
 
-  getAllOptions() {
-    this.optionService.getAllOptions().subscribe(o => {this.options = o;});
+  // getAllOptions() {
+  //   this.optionService.getAllOptions().subscribe(o => {this.options = o;});
+  // }
+  loadCarOptions() {
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(OptionComponent);
+    const viewContainerRef = this.optionHost.viewContainerRef;
+    const componentRef = viewContainerRef.createComponent(componentFactory);
   }
 
 }

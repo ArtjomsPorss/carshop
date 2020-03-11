@@ -16,10 +16,9 @@ INSERT INTO options VALUES (6, 'Turbo');
 INSERT INTO options VALUES (7, 'Winter Tyre Set');
 INSERT INTO options VALUES (8, 'Driver Assistant');
 INSERT INTO options VALUES (9, 'Splash Guards');
-INSERT INTO options VALUES (10, 'Splash Guards');
-INSERT INTO options VALUES (11, 'Door Kick Plates');
-INSERT INTO options VALUES (12, 'Rear Cargo Cover');
-INSERT INTO options VALUES (13, 'Ash Cup');
-INSERT INTO options VALUES (14, 'Safety Kit');
-INSERT INTO options VALUES (15, 'Cargo Net');
+INSERT INTO options VALUES (10, 'Door Kick Plates');
+INSERT INTO options VALUES (11, 'Rear Cargo Cover');
+INSERT INTO options VALUES (12, 'Ash Cup');
+INSERT INTO options VALUES (13, 'Safety Kit');
+INSERT INTO options VALUES (14, 'Cargo Net');
 

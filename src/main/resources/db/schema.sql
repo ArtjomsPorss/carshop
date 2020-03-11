@@ -7,7 +7,7 @@ CREATE TABLE CAR (
 	make	VARCHAR,
 	model	VARCHAR,
 	edition	VARCHAR,
-	price	DECIMAL	
+	price	INTEGER	
 );
 
 CREATE TABLE OPTIONS (
@@ -18,5 +18,5 @@ CREATE TABLE OPTIONS (
 CREATE TABLE OPTION_SELECTED (
 	car_id	INTEGER,
 	opt_id	INTEGER,
-	price	DECIMAL
+	price	INTEGER
 );

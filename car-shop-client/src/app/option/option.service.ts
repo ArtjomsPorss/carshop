@@ -10,8 +10,8 @@ export class OptionService {
 
   private getOptions = '/all-options';
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient){}
+  
   getAllOptions(): Observable<Option[]> {
     return this.http.get<Option[]>(this.getOptions);
   }
