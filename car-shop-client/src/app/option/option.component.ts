@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Option } from "./Option";
 import { OptionService } from './option.service';
 
@@ -9,6 +9,9 @@ import { OptionService } from './option.service';
 })
 export class OptionComponent implements OnInit {
 
+  @Output() addNew = new EventEmitter<any>();
+
+  self: any;
   added: boolean;
   selected: number;
 
@@ -18,6 +21,7 @@ export class OptionComponent implements OnInit {
 
   ngOnInit(): void {
     this.optionService.getAllOptions().subscribe(o => this.options = o);
+    this.added = false;
   }
 
   select(selectedVal: any) {
@@ -27,10 +31,20 @@ export class OptionComponent implements OnInit {
   add() {
     this.added = true;
     // call directive to add another one, empty one
+    console.log('add()');
+    this.addNew.emit(true);
+  }
+
+  // check for display of Add and Remove buttons
+  notAdded(): boolean {
+    return this.added === false;
+  }
+  isAdded(): boolean {
+    return  this.added === true;
   }
 
   remove() {
-    // call directive to delete this one
+    this.self.destroy();
   }
 
 

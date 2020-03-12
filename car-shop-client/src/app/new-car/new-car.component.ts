@@ -22,13 +22,12 @@ export class NewCarComponent implements OnInit {
     private carsService: CarsService,
     private router: Router,
     private route: ActivatedRoute,
-    private optionService: OptionService,
     private componentFactoryResolver: ComponentFactoryResolver,
     ) { }
 
   ngOnInit(): void {
     this.resetCarDetails();
-    this.loadCarOptions();
+    this.addCarOption();
   }
   
   resetCarDetails(): void {
@@ -50,13 +49,17 @@ export class NewCarComponent implements OnInit {
     this.router.navigate([`/car/${this.car.id}`], { relativeTo: this.route });
   }
 
-  // getAllOptions() {
-  //   this.optionService.getAllOptions().subscribe(o => {this.options = o;});
-  // }
-  loadCarOptions() {
+  addCarOption() {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(OptionComponent);
     const viewContainerRef = this.optionHost.viewContainerRef;
     const componentRef = viewContainerRef.createComponent(componentFactory);
+    // assigning it back to itself for destroy method
+    componentRef.instance.self = componentRef;
+  }
+
+  addNewFromChild(event: any) {
+    console.log('addNewFromChild()');
+    this.addCarOption();
   }
 
 }

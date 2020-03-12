@@ -5,6 +5,6 @@
             {{option.name}}
         </option>
     </select>
-    <button *ngIf="!added" (click)="add">Add</button>
-    <button *ngIf="added" (click)="remove">Remove</button>
+    <button *ngIf="notAdded()" (click)="add()">Add</button>
+    <button *ngIf="isAdded()" (click)="remove()">Remove</button>
 </div>

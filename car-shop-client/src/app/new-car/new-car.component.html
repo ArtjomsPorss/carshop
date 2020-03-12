@@ -6,7 +6,7 @@
         <h3><label>Edition: </label><input [(ngModel)]="car.edition" placeholder="edition"/></h3>
         <h3><label>Price: € </label><input [(ngModel)]="car.price" placeholder="price"/></h3>
         <h3><label>Select Options:</label></h3> 
-        <ng-template option-host></ng-template>
+        <ng-template option-host (addNew)="addNewFromChild($event)"></ng-template>
         <button (click)="resetCarDetails()">Clear</button>
         <button (click)="save()">Save</button>
     </div>    
