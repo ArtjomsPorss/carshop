@@ -55,6 +55,7 @@ export class NewCarComponent implements OnInit {
     const componentRef = viewContainerRef.createComponent(componentFactory);
     // assigning it back to itself for destroy method
     componentRef.instance.self = componentRef;
+    componentRef.instance.parent = this;
   }
 
   addNewFromChild(event: any) {

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Option } from "./Option";
 import { OptionService } from './option.service';
+import { NewCarComponent } from '../new-car/new-car.component';
 
 @Component({
   selector: 'app-option',
@@ -16,6 +17,7 @@ export class OptionComponent implements OnInit {
   selected: number;
 
   options: Option[];
+  parent: NewCarComponent;
 
   constructor(private optionService: OptionService) { }
 
@@ -31,8 +33,9 @@ export class OptionComponent implements OnInit {
   add() {
     this.added = true;
     // call directive to add another one, empty one
-    console.log('add()');
-    this.addNew.emit(true);
+    // console.log('add()');
+    // this.addNew.emit(true);
+    this.parent.addCarOption();
   }
 
   // check for display of Add and Remove buttons
