@@ -1,4 +1,4 @@
-import { Component, OnInit, ComponentFactoryResolver, ViewChild } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, ViewChild, ViewRef, ViewChildren, QueryList, ContentChildren, ElementRef, ViewContainerRef, ContentChild } from '@angular/core';
 import { Car } from '../car/Car';
 import { CarsService } from '../cars/cars.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -17,7 +17,7 @@ export class NewCarComponent implements OnInit {
   car: Car;
   selectedOptions: Option[];
   @ViewChild(OptionHostDirective, {static: true}) optionHost: OptionHostDirective;
-
+  
   constructor(
     private carsService: CarsService,
     private router: Router,
@@ -28,6 +28,7 @@ export class NewCarComponent implements OnInit {
   ngOnInit(): void {
     this.resetCarDetails();
     this.addCarOption();
+    
   }
   
   resetCarDetails(): void {

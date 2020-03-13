@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChildren, QueryList, ContentChildren } from '@angular/core';
 import { Option } from "./Option";
 import { OptionService } from './option.service';
 import { NewCarComponent } from '../new-car/new-car.component';
@@ -32,9 +32,6 @@ export class OptionComponent implements OnInit {
 
   add() {
     this.added = true;
-    // call directive to add another one, empty one
-    // console.log('add()');
-    // this.addNew.emit(true);
     this.parent.addCarOption();
   }
 

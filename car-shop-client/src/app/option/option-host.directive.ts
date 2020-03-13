@@ -1,10 +1,12 @@
-import { Directive, ViewContainerRef } from '@angular/core';
+import { Directive, ViewContainerRef, QueryList, ViewChildren, ContentChildren, AfterViewInit, AfterContentInit } from '@angular/core';
+import { OptionComponent } from './option.component';
 
 @Directive({
-  selector: '[option-host]'
+  selector: '[optionHost]'
 })
 export class OptionHostDirective {
 
   constructor(public viewContainerRef: ViewContainerRef) { }
+
 
 }
