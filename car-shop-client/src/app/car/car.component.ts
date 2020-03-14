@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CarsService } from '../cars/cars.service';
 import { Location } from '@angular/common';
 import { Car } from './Car';
+import { CarHelper } from "./car-helper";
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Car } from './Car';
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css']
 })
-export class CarComponent implements OnInit {
+export class CarComponent extends CarHelper implements OnInit {
 
   car: Car;
   editing: boolean = false;
@@ -19,8 +20,10 @@ export class CarComponent implements OnInit {
     private route: ActivatedRoute,
     private carsService: CarsService,
     private location: Location,
-    private router: Router,
-    ) { }
+    private router: Router
+    ) { 
+      super();
+    }
 
   ngOnInit(): void {
     this.getCar();
@@ -58,5 +61,4 @@ export class CarComponent implements OnInit {
   goToCars() {
     this.router.navigate(['/cars'], { relativeTo: this.route });
   }
-
 }

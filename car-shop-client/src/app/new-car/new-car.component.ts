@@ -6,6 +6,7 @@ import { OptionService } from '../option/option.service';
 import { Option } from "../option/Option";
 import { OptionHostDirective } from '../option/option-host.directive';
 import { OptionComponent } from '../option/option.component';
+import { SelectedOption } from "../option/selected-option";
 
 @Component({
   selector: 'app-new-car',
@@ -15,7 +16,8 @@ import { OptionComponent } from '../option/option.component';
 export class NewCarComponent implements OnInit {
 
   car: Car;
-  selectedOptions: Option[];
+  selectedOptions: SelectedOption[];
+  childrenOptions: OptionComponent[] = [];
   @ViewChild(OptionHostDirective, {static: true}) optionHost: OptionHostDirective;
   
   constructor(
@@ -37,13 +39,20 @@ export class NewCarComponent implements OnInit {
       make: '',
       model: '',
       edition: '',
-      price: null
+      price: null,
+      selectedOptions: []
     }
   }
 
   save(): void {
+    this.pickSelectedOptions();
     this.carsService.saveCar(this.car)
     .subscribe(car => {this.car = car; this.viewCar()});
+  }
+  pickSelectedOptions() {
+    var selectedOptions: SelectedOption[] =  this.childrenOptions.filter(o => o.selectedOption !== 0 && o.isAdded()).map(o => { return{carId: this.car.id, price:o.price, selectedOption: o.selectedOption}});
+    this.car.selectedOptions = selectedOptions;   
+    console.log(this.selectedOptions);
   }
 
   viewCar() {
@@ -57,6 +66,7 @@ export class NewCarComponent implements OnInit {
     // assigning it back to itself for destroy method
     componentRef.instance.self = componentRef;
     componentRef.instance.parent = this;
+    this.childrenOptions.push(componentRef.instance);
   }
 
   addNewFromChild(event: any) {

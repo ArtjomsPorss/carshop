@@ -13,6 +13,7 @@ import { OptionComponent } from './option/option.component';
 import { OptionHostDirective } from './option/option-host.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { fakeBackendProvider } from './dev-infrastructure/http-interceptor';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   { path: 'cars', component: CarsComponent },
@@ -37,10 +38,14 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [
+  providers: environment.production ? [] : [
     // provider used to create fake backend
     fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(){
+    console.log('Prod environment: ' + environment.production);
+  }
+}

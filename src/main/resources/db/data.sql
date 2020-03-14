@@ -22,3 +22,8 @@ INSERT INTO options VALUES (12, 'Ash Cup');
 INSERT INTO options VALUES (13, 'Safety Kit');
 INSERT INTO options VALUES (14, 'Cargo Net');
 
+
+INSERT INTO option_selected VALUES (1, 1, 1, 20);
+INSERT INTO option_selected VALUES (2, 1, 2, 30);
+INSERT INTO option_selected VALUES (3, 1, 3, 500);
+

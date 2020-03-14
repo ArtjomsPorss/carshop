@@ -14,7 +14,8 @@ export class OptionComponent implements OnInit {
 
   self: any;
   added: boolean;
-  selected: number;
+  selectedOption: number;
+  price: number;
 
   options: Option[];
   parent: NewCarComponent;
@@ -27,7 +28,7 @@ export class OptionComponent implements OnInit {
   }
 
   select(selectedVal: any) {
-    this.selected = selectedVal;
+    this.selectedOption = selectedVal;
   }
 
   add() {
@@ -44,6 +45,8 @@ export class OptionComponent implements OnInit {
   }
 
   remove() {
+    this.selectedOption = 0;
+    this.added = false;
     this.self.destroy();
   }
 

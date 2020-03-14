@@ -7,13 +7,13 @@ import { Option } from '../option/Option';
 
 // array in local storage for registered users
 let cars: Car[] = [
-    {id: 1, make:'Ford', model: 'Focus', edition:'2.0 CDTI Bi-Turbo ecoFLEX S/S', price:32000.00},
-    {id: 2, make:'Opel', model:'Insignia', edition:'2.0 CDTI Bi-Turbo ecoFLEX S/S', price:30000.00},
-    {id: 3, make:'Volkswagen', model:'ID.3', edition:'Pro S', price:42000.00},
-    {id: 4, make:'Mercedes', model:'GLA SUV', edition:'2.0 CDTI Bi-Turbo ecoFLEX S/S', price:34500.00},
-    {id: 5, make:'Nissan', model:'GT-R', edition:'3.8L DOHC 24-valve Twin-Turbo', price:113540.00},
-    {id: 6, make:'Porsche', model:'Panamera', edition:'E-Performance', price:87200.00},
-    {id: 7, make:'BMW', model:'M8', edition:'Coupe', price:133000.00}
+    {id: 1, make:'Ford', model: 'Focus', edition:'2.0 CDTI Bi-Turbo ecoFLEX S/S', price:32000.00, selectedOptions: [{carId:1, price:90, selectedOption:1}, {carId:1, price:50, selectedOption:2}, {carId:1, price:100, selectedOption:3}]},
+    {id: 2, make:'Opel', model:'Insignia', edition:'2.0 CDTI Bi-Turbo ecoFLEX S/S', price:30000.00, selectedOptions: []},
+    {id: 3, make:'Volkswagen', model:'ID.3', edition:'Pro S', price:42000.00, selectedOptions: []},
+    {id: 4, make:'Mercedes', model:'GLA SUV', edition:'2.0 CDTI Bi-Turbo ecoFLEX S/S', price:34500.00, selectedOptions: []},
+    {id: 5, make:'Nissan', model:'GT-R', edition:'3.8L DOHC 24-valve Twin-Turbo', price:113540.00, selectedOptions: []},
+    {id: 6, make:'Porsche', model:'Panamera', edition:'E-Performance', price:87200.00, selectedOptions: []},
+    {id: 7, make:'BMW', model:'M8', edition:'Coupe', price:133000.00, selectedOptions: []}
 ]
 
 // array of options for frontend

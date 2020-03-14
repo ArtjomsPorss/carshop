@@ -5,9 +5,11 @@
         <h3><label>Model: </label><input [(ngModel)]="car.model" placeholder="model"/></h3>
         <h3><label>Edition: </label><input [(ngModel)]="car.edition" placeholder="edition"/></h3>
         <h3><label>Price: € </label><input [(ngModel)]="car.price" placeholder="price"/></h3>
-        <h3><label>Select Options:</label></h3> 
+        <h3><label>Options:</label></h3> 
         <ng-template optionHost></ng-template>
-        <button (click)="resetCarDetails()">Clear</button>
-        <button (click)="save()">Save</button>
+        <div>
+            <button (click)="resetCarDetails()">Clear</button>
+            <button (click)="save()">Save</button>
+        </div>
     </div>    
 </div>
