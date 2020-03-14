@@ -14,7 +14,6 @@ import { OptionService } from '../option/option.service';
 })
 export class CarComponent extends CarHelper implements OnInit {
 
-  car: Car;
   editing: boolean;
 
   constructor(

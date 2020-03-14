@@ -35,9 +35,10 @@ public class CarController {
 	}
 	
 	@PostMapping("/updateCarDetails")
-	public void updateCarDetails(@RequestBody Car car) {
+	public @ResponseBody String updateCarDetails(@RequestBody Car car) {
 		logger.info(String.format("Update Car: %s", car));
 		carRepo.save(car);
+		return "";
 	}
 	
 	@PostMapping("/new-car")

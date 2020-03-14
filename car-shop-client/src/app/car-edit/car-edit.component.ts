@@ -70,8 +70,13 @@ export class CarEditComponent extends CarHelper implements OnInit, OptionParent 
   updateEdits(): void {
     this.pickSelectedOptions();  
     this.carsService.updateCarDetails(this.car)
-      .subscribe(article => {console.log(article)});
+      .subscribe(retVal => this.viewCar());
   }
+
+  viewCar() {
+    this.router.navigate([`/car/${this.car.id}`], { relativeTo: this.route });
+  }
+
   pickSelectedOptions() {
     this.car.selectedOptions = this.childrenOptions.filter(o => o.selectedOption !== 0 && o.added).map(o => { return{carId: this.car.id, price:o.price, selectedOption: o.selectedOption}});
   }

@@ -25,7 +25,7 @@ export class CarsService {
     return this.http.get<Car>(url);
   }
   
-  updateCarDetails(car: Car): Observable<Car> {
+  updateCarDetails(car: Car): Observable<{}> {
     console.log(car);
     return this.http.post<Car>(this.postUpdateCarDetails, car);
   }
