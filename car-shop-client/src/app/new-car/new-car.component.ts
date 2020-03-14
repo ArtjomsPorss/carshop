@@ -2,21 +2,18 @@ import { Component, OnInit, ComponentFactoryResolver, ViewChild, ViewRef, ViewCh
 import { Car } from '../car/Car';
 import { CarsService } from '../cars/cars.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { OptionService } from '../option/option.service';
-import { Option } from "../option/Option";
 import { OptionHostDirective } from '../option/option-host.directive';
 import { OptionComponent } from '../option/option.component';
-import { SelectedOption } from "../option/selected-option";
+import { OptionParent } from '../option/option-parent';
 
 @Component({
   selector: 'app-new-car',
   templateUrl: './new-car.component.html',
   styleUrls: ['./new-car.component.css']
 })
-export class NewCarComponent implements OnInit {
+export class NewCarComponent implements OnInit, OptionParent {
 
   car: Car;
-  selectedOptions: SelectedOption[];
   childrenOptions: OptionComponent[] = [];
   @ViewChild(OptionHostDirective, {static: true}) optionHost: OptionHostDirective;
   
@@ -50,9 +47,7 @@ export class NewCarComponent implements OnInit {
     .subscribe(car => {this.car = car; this.viewCar()});
   }
   pickSelectedOptions() {
-    var selectedOptions: SelectedOption[] =  this.childrenOptions.filter(o => o.selectedOption !== 0 && o.isAdded()).map(o => { return{carId: this.car.id, price:o.price, selectedOption: o.selectedOption}});
-    this.car.selectedOptions = selectedOptions;   
-    console.log(this.selectedOptions);
+    this.car.selectedOptions = this.childrenOptions.filter(o => o.selectedOption !== 0 && o.added).map(o => { return{carId: this.car.id, price:o.price, selectedOption: o.selectedOption}});
   }
 
   viewCar() {

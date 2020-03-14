@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, ViewChildren, QueryList, Conte
 import { Option } from "./Option";
 import { OptionService } from './option.service';
 import { NewCarComponent } from '../new-car/new-car.component';
+import { OptionParent } from './option-parent';
 
 @Component({
   selector: 'app-option',
@@ -13,18 +14,18 @@ export class OptionComponent implements OnInit {
   @Output() addNew = new EventEmitter<any>();
 
   self: any;
-  added: boolean;
+  added: boolean = false;
   selectedOption: number;
   price: number;
 
   options: Option[];
-  parent: NewCarComponent;
+  parent: OptionParent;
 
   constructor(private optionService: OptionService) { }
 
   ngOnInit(): void {
     this.optionService.getAllOptions().subscribe(o => this.options = o);
-    this.added = false;
+    // this.added = false;
   }
 
   select(selectedVal: any) {
@@ -34,14 +35,6 @@ export class OptionComponent implements OnInit {
   add() {
     this.added = true;
     this.parent.addCarOption();
-  }
-
-  // check for display of Add and Remove buttons
-  notAdded(): boolean {
-    return this.added === false;
-  }
-  isAdded(): boolean {
-    return  this.added === true;
   }
 
   remove() {
