@@ -55,6 +55,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return getCars();
                 case url.match('/car//[0-9]') && method === 'GET':
                     return getCarById();
+                case url.match('/car-edit//[0-9]') && method === 'GET':
+                    return getCarById();
                 case url.match('/delete-car') && method === 'POST':
                     return deleteCar();
                 case url.match('/updateCarDetails') && method === 'POST':

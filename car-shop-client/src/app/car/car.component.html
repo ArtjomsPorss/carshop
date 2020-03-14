@@ -11,16 +11,8 @@
             <div>
             <h4><span>Total Price € </span>{{totalPrice(car)}}</h4>
             <button routerLink="/cars">Back to Cars</button>
-            <button (click)="edit()">Edit</button>
+            <button routerLink="/car-edit/{{car.id}}">Edit</button>
             <button (click)="delete()">Delete</button>
-        </div>    
-        <div  *ngIf="editing">
-            <h3><label>Make: </label><input [(ngModel)]="car.make" placeholder="make"/></h3>
-            <h3><label>Model: </label><input [(ngModel)]="car.model" placeholder="model"/></h3>
-            <h3><label>Edition: </label><input [(ngModel)]="car.edition" placeholder="edition"/></h3>
-            <h3><label>Price: € </label><input [(ngModel)]="car.price" placeholder="price"/></h3>
-            <button routerLink="/car/{{car.id}}" (click)="finishEditing()">Cancel</button>
-            <button routerLink="/car/{{car.id}}" (click)="updateEdits()">Update</button>
         </div>    
     </div>
 </div>

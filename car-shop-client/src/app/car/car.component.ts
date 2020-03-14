@@ -15,7 +15,7 @@ import { OptionService } from '../option/option.service';
 export class CarComponent extends CarHelper implements OnInit {
 
   car: Car;
-  editing: boolean = false;
+  editing: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,6 +25,7 @@ export class CarComponent extends CarHelper implements OnInit {
     optionService: OptionService
     ) { 
       super(optionService);
+      this.editing = false;
     }
 
   ngOnInit(): void {
@@ -45,16 +46,9 @@ export class CarComponent extends CarHelper implements OnInit {
   edit(): void {
     this.editing = true;
   }
-  
-  finishEditing(): void {
-    this.editing = false;
-  }
-
-  updateEdits(): void {
-    console.info("update edits is called");
-    this.finishEditing();
-    this.carsService.updateCarDetails(this.car)
-      .subscribe(article => {console.log(article)});
+  isEditing(): boolean {
+    console.log('editing = ' + this.editing);
+    return this.editing;
   }
 
   delete(): void {

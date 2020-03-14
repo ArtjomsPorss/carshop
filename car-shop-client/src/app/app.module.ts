@@ -14,10 +14,12 @@ import { OptionHostDirective } from './option/option-host.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { fakeBackendProvider } from './dev-infrastructure/http-interceptor';
 import { environment } from '../environments/environment';
+import { CarEditComponent } from './car-edit/car-edit.component';
 
 const appRoutes: Routes = [
   { path: 'cars', component: CarsComponent },
   { path: 'car/:id', component: CarComponent },
+  { path: 'car-edit/:id', component: CarEditComponent },
   { path: 'new-car', component: NewCarComponent },
   { path: '', redirectTo: 'cars', pathMatch: 'full'}
 ];
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     NewCarComponent,
     CarComponent,
     OptionComponent,
-    OptionHostDirective
+    OptionHostDirective,
+    CarEditComponent
   ],
   imports: [
     BrowserModule,
