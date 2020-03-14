@@ -7,7 +7,7 @@
             <p>{{car.edition}}</p>
             <div *ngIf="car.selectedOptions">
                 <h4>Options:</h4>
-                <p *ngFor="let option of car.selectedOptions"><span>{{option.selectedOption}} €{{option.price}}</span></p>
+                <p *ngFor="let option of car.selectedOptions"><span>{{getOptionLabel(option)}} €{{option.price}}</span></p>
             <div>
             <h4><span>Total Price € </span>{{totalPrice(car)}}</h4>
             <button routerLink="/cars">Back to Cars</button>

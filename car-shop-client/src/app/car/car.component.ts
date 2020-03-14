@@ -4,6 +4,7 @@ import { CarsService } from '../cars/cars.service';
 import { Location } from '@angular/common';
 import { Car } from './Car';
 import { CarHelper } from "./car-helper";
+import { OptionService } from '../option/option.service';
 
 
 @Component({
@@ -20,9 +21,10 @@ export class CarComponent extends CarHelper implements OnInit {
     private route: ActivatedRoute,
     private carsService: CarsService,
     private location: Location,
-    private router: Router
+    private router: Router,
+    optionService: OptionService
     ) { 
-      super();
+      super(optionService);
     }
 
   ngOnInit(): void {
@@ -33,7 +35,7 @@ export class CarComponent extends CarHelper implements OnInit {
   getCar() : void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.carsService.getCar(id)
-      .subscribe(car => this.car = car);
+      .subscribe(car => { this.car = car; console.log(car)});
   }
 
   goBack(): void {
@@ -43,6 +45,7 @@ export class CarComponent extends CarHelper implements OnInit {
   edit(): void {
     this.editing = true;
   }
+  
   finishEditing(): void {
     this.editing = false;
   }

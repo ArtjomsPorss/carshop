@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarsService } from './cars.service';
 import { Car } from './../car/Car';
 import { CarHelper } from "../car/car-helper";
+import { OptionService } from '../option/option.service';
 
 @Component({
   selector: 'app-cars',
@@ -10,12 +11,13 @@ import { CarHelper } from "../car/car-helper";
 })
 export class CarsComponent extends CarHelper implements OnInit {
 
-  carsService: CarsService;
   cars: Car[];
 
-  constructor(carsService: CarsService) { 
-    super();
-    this.carsService = carsService;
+  constructor(
+    private carsService: CarsService,
+    optionService: OptionService
+    ) { 
+    super(optionService);
   }
 
   ngOnInit(): void {
