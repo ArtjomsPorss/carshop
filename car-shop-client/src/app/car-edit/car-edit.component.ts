@@ -17,7 +17,6 @@ export class CarEditComponent extends CarHelper implements OnInit, OptionParent 
 
   @ViewChild(OptionHostDirective, {static: true}) optionHost: OptionHostDirective;
 
-  car: Car;
   childrenOptions: OptionComponent[] = [];
 
   constructor(optionService: OptionService,
@@ -34,16 +33,6 @@ export class CarEditComponent extends CarHelper implements OnInit, OptionParent 
     this.getCar();
   }
 
-  resetCarDetails(): void {
-    this.car = {
-      id: 0,
-      make: '',
-      model: '',
-      edition: '',
-      price: null,
-      selectedOptions: []
-    }
-  }
 
   getCar() : void {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -77,12 +66,14 @@ export class CarEditComponent extends CarHelper implements OnInit, OptionParent 
     componentRef.instance.parent = this;
     this.childrenOptions.push(componentRef.instance);
   }
-
     
   updateEdits(): void {
-    console.info("update edits is called");
+    this.pickSelectedOptions();  
     this.carsService.updateCarDetails(this.car)
       .subscribe(article => {console.log(article)});
+  }
+  pickSelectedOptions() {
+    this.car.selectedOptions = this.childrenOptions.filter(o => o.selectedOption !== 0 && o.added).map(o => { return{carId: this.car.id, price:o.price, selectedOption: o.selectedOption}});
   }
 
 }

@@ -29,6 +29,7 @@ export class CarComponent extends CarHelper implements OnInit {
     }
 
   ngOnInit(): void {
+    this.resetCarDetails();
     this.getCar();
   }
 

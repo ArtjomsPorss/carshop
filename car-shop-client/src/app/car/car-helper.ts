@@ -5,6 +5,7 @@ import { SelectedOption } from '../option/selected-option';
 
 export class CarHelper {
 
+    car: Car;
     options: Option[];
 
     constructor(protected optionService: OptionService){
@@ -18,6 +19,23 @@ export class CarHelper {
     }
 
     getOptionLabel(option: SelectedOption): string{
-        return this.options.find(e => e.id === option.selectedOption).name;
+        return this.options.find(e => e.id === this.getNumber(option.selectedOption)).name;
     }
+
+    resetCarDetails(): void {
+        this.car = {
+            id: 0,
+            make: '',
+            model: '',
+            edition: '',
+            price: null,
+            selectedOptions: []
+        }
+    }
+
+    getNumber(value: any): number{
+        return isNaN(value) ? 0 : Number(value);
+    }
+
+
 }

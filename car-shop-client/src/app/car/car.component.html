@@ -5,11 +5,12 @@
             <h3>{{car.make}}</h3>
             <h4>{{car.model}}</h4>
             <p>{{car.edition}}</p>
+            <h4><span>Price € </span>{{car.price}}</h4>
             <div *ngIf="car.selectedOptions">
                 <h4>Options:</h4>
                 <p *ngFor="let option of car.selectedOptions"><span>{{getOptionLabel(option)}} €{{option.price}}</span></p>
             <div>
-            <h4><span>Total Price € </span>{{totalPrice(car)}}</h4>
+            <h3><span>Total Price € </span>{{totalPrice(car)}}</h3>
             <button routerLink="/cars">Back to Cars</button>
             <button routerLink="/car-edit/{{car.id}}">Edit</button>
             <button (click)="delete()">Delete</button>

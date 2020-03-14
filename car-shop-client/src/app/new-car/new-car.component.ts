@@ -5,13 +5,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { OptionHostDirective } from '../option/option-host.directive';
 import { OptionComponent } from '../option/option.component';
 import { OptionParent } from '../option/option-parent';
+import { CarHelper } from '../car/car-helper';
+import { OptionService } from '../option/option.service';
 
 @Component({
   selector: 'app-new-car',
   templateUrl: './new-car.component.html',
   styleUrls: ['./new-car.component.css']
 })
-export class NewCarComponent implements OnInit, OptionParent {
+export class NewCarComponent extends CarHelper  implements OnInit, OptionParent {
 
   car: Car;
   childrenOptions: OptionComponent[] = [];
@@ -22,23 +24,15 @@ export class NewCarComponent implements OnInit, OptionParent {
     private router: Router,
     private route: ActivatedRoute,
     private componentFactoryResolver: ComponentFactoryResolver,
-    ) { }
+    optionService: OptionService
+    ) { 
+      super(optionService);
+    }
 
   ngOnInit(): void {
     this.resetCarDetails();
     this.addCarOption();
     
-  }
-  
-  resetCarDetails(): void {
-    this.car = {
-      id: 0,
-      make: '',
-      model: '',
-      edition: '',
-      price: null,
-      selectedOptions: []
-    }
   }
 
   save(): void {
