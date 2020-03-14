@@ -24,7 +24,7 @@ export class CarHelper {
 
     resetCarDetails(): void {
         this.car = {
-            id: 0,
+            id: null,
             make: '',
             model: '',
             edition: '',

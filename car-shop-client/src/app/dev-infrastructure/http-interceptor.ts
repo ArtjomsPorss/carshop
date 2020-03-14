@@ -98,6 +98,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             var car = carFromBody()
             var max = Math.max.apply(Math, cars.map(e => e.id));
             car.id = max === undefined ? 1 : max+1;
+            car.selectedOptions.forEach(e => e.carId = max);
             cars.push(car);
             return ok(car);
         }

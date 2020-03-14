@@ -41,7 +41,7 @@ export class NewCarComponent extends CarHelper  implements OnInit, OptionParent 
     .subscribe(car => {this.car = car; this.viewCar()});
   }
   pickSelectedOptions() {
-    this.car.selectedOptions = this.childrenOptions.filter(o => o.selectedOption !== 0 && o.added).map(o => { return{carId: this.car.id, price:o.price, selectedOption: o.selectedOption}});
+    this.car.selectedOptions = this.childrenOptions.filter(o => o.selectedOption !== 0 && o.added).map(o => { return{carId: null, price:o.price, selectedOption: o.selectedOption}});
   }
 
   viewCar() {

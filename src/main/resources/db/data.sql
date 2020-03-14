@@ -7,10 +7,10 @@ INSERT INTO car VALUES (6, 'Porsche', 'Panamera', 'E-Performance', 87200.00);
 INSERT INTO car VALUES (7, 'BMW', 'M8', 'Coupe', 133000.00);
 
 
-INSERT INTO options VALUES (1, 'Sunroof');
+INSERT INTO options VALUES (1, 'Koronavirus Protection kit');
 INSERT INTO options VALUES (2, 'Heated Seats');
 INSERT INTO options VALUES (3, 'Air Conditioner');
-INSERT INTO options VALUES (4, 'Navigation');
+INSERT INTO options VALUES (4, 'Navigation System');
 INSERT INTO options VALUES (5, 'Parking Camera System');
 INSERT INTO options VALUES (6, 'Turbo');
 INSERT INTO options VALUES (7, 'Winter Tyre Set');
@@ -18,7 +18,7 @@ INSERT INTO options VALUES (8, 'Driver Assistant');
 INSERT INTO options VALUES (9, 'Splash Guards');
 INSERT INTO options VALUES (10, 'Door Kick Plates');
 INSERT INTO options VALUES (11, 'Rear Cargo Cover');
-INSERT INTO options VALUES (12, 'Ash Cup');
+INSERT INTO options VALUES (12, 'Sunroof');
 INSERT INTO options VALUES (13, 'Safety Kit');
 INSERT INTO options VALUES (14, 'Cargo Net');
 
