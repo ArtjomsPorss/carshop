@@ -23,14 +23,14 @@ public class CarController {
 	@GetMapping("/allcars")
 	public @ResponseBody List<Car> cars() {
 		List<Car> cars = carRepo.findAll();
-		logger.info(String.format("AMOUNT OF CARS: %d", cars.size()));
+		logger.info(String.format("All Cars: %d", cars.size()));
 		return cars;
 	}
 	
 	@GetMapping("/car/{carId}")
 	public @ResponseBody Car getCar(@PathVariable("carId") Integer carId) {
 		Car car = carRepo.findById(carId);
-		logger.info(String.format("AMOUNT OF CARS: %s", car));
+		logger.info(String.format("Getting a car: %s", car));
 		return car;
 	}
 	
