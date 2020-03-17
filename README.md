@@ -37,3 +37,33 @@ Angular is compiled in prod mode and is served as static HTML+JS website.
    Running code locally using ng serve will not use the database, but the calls will be intercepted by [FakeBackendInterceptor](https://github.com/ArtjomsPorss/carshop/blob/master/car-shop-client/src/app/dev-infrastructure/http-interceptor.ts)
    
    Build angular code using ng build --prod
+   
+## Development Process
+### Done
+[x] create new car
+[x] delete a car
+[x] add an options schema
+[x] options controller, repository
+[x] options service in angular
+[x] display options
+[x] select options for a new car
+[x] added http interceptor
+[x] http interceptor is off in prod mode
+[x] clear options for a new car
+[x] save options for a new car
+[x] map option labels to option IDs when viewing a car
+[x] when cancel editing, just reload the car
+[x] map option labels to option IDs
+[x] fix option id when not defined
+[x] fixed display of last option dropdown
+[x] fix error in console when car is loaded after edit car window opens
+[x] edit options for existing car
+[x] update car edits
+[x] fix issue with Spring viewing car before it is updated
+[x] remove the directive and use selector on car component
+[x] delete options with a car
+
+### TODO
+[ ] compatibility with old IE, edge is supported
+[ ] swap price to be first and text to be last
+
