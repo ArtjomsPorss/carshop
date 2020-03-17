@@ -6,7 +6,9 @@
         <h3><label>Edition: </label><input [(ngModel)]="car.edition" placeholder="edition"/></h3>
         <h3><label>Price: € </label><input [(ngModel)]="car.price" placeholder="price"/></h3>
         <h3><label>Options:</label></h3> 
-        <ng-template optionHost></ng-template>
+        <div *ngFor="let option of car.selectedOptions">
+            <app-option (onAddNew)="addOption()" [injectedOption]="option" (onRemove)="removeOption(option)"></app-option>
+        </div>
         <div>
             <button (click)="resetCarDetails()">Clear</button>
             <button (click)="save()">Save</button>

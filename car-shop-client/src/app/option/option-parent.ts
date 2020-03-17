@@ -1,3 +1,6 @@
+import { SelectedOption } from './selected-option';
+
 export interface OptionParent {
-    addCarOption()
+    addOption(): void;
+    removeOption(option: SelectedOption): void;
 }

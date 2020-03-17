@@ -78,7 +78,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         function getCarById() {
             // var car = carFromBody();
             const carfound = cars.find(x => x.id == idFromUrl());
-            return ok(carfound);
+            // clone the car, to remove reference
+            const carfoundCopy = {...carfound};
+            carfoundCopy.selectedOptions = [...carfound.selectedOptions];
+            return ok(carfoundCopy);
         }
 
         function deleteCar() {

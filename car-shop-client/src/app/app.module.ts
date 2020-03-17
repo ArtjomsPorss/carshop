@@ -10,7 +10,6 @@ import { NewCarComponent } from './new-car/new-car.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OptionComponent } from './option/option.component';
-import { OptionHostDirective } from './option/option-host.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { fakeBackendProvider } from './dev-infrastructure/http-interceptor';
 import { environment } from '../environments/environment';
@@ -31,7 +30,6 @@ const appRoutes: Routes = [
     NewCarComponent,
     CarComponent,
     OptionComponent,
-    OptionHostDirective,
     CarEditComponent
   ],
   imports: [

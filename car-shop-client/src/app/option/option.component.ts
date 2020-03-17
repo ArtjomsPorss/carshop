@@ -1,8 +1,7 @@
-import { Component, OnInit, Output, EventEmitter, ViewChildren, QueryList, ContentChildren } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChildren, QueryList, ContentChildren, Input } from '@angular/core';
 import { Option } from "./Option";
 import { OptionService } from './option.service';
-import { NewCarComponent } from '../new-car/new-car.component';
-import { OptionParent } from './option-parent';
+import { SelectedOption } from './selected-option';
 
 @Component({
   selector: 'app-option',
@@ -11,36 +10,37 @@ import { OptionParent } from './option-parent';
 })
 export class OptionComponent implements OnInit {
 
-  @Output() addNew = new EventEmitter<any>();
+  @Output() onAddNew = new EventEmitter<any>();
+  @Output() onRemove = new EventEmitter<any>();
+  @Input() injectedOption: SelectedOption;
 
-  self: any;
   added: boolean = false;
-  selectedOption: number;
   price: number;
-
   options: Option[];
-  parent: OptionParent;
 
-  constructor(private optionService: OptionService) { }
-
+  constructor(private optionService: OptionService) { 
+    
+  }
+  
   ngOnInit(): void {
     this.optionService.getAllOptions().subscribe(o => this.options = o);
-    // this.added = false;
+    if(this.injectedOption.selectedOption !== 0){
+      this.added = true;
+    }
   }
 
   select(selectedVal: any) {
-    this.selectedOption = selectedVal;
+    this.injectedOption.selectedOption = Number(selectedVal);
   }
 
   add() {
     this.added = true;
-    this.parent.addCarOption();
+    this.onAddNew.emit(this);
   }
 
   remove() {
-    this.selectedOption = 0;
     this.added = false;
-    this.self.destroy();
+    this.onRemove.emit(this.injectedOption);
   }
 
 
