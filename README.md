@@ -3,11 +3,11 @@ Car Shop is a CRUD web application, it displays a list of preexisting cars with 
 Each car can have a number of different options which can be added or removed.
 ## Running The app
 ### Start the App
-Download and unpack the archive.
+[Download](https://github.com/ArtjomsPorss/carshop/releases/tag/1.0.0) and unpack the archive.
 #### Using batch file
 Run the StartApp.bat it will start the application and open the browser.
 #### Manually
-Otherwise start the app using command line command java -jar [archive name].jar
+Otherwise start the app using command line command java -jar [archive name].jar. 
 Then open browser on http://localhost:8080/
 ### Using The App
 The Application is pretty straightforward.
@@ -33,3 +33,7 @@ Angular is compiled in prod mode and is served as static HTML+JS website.
 * Edit java code, run as java application within your IDE to make live changes.
 * Build a self-containing .jar using maven command *mvn clean isntall*.
 * Change angular code which is in car-shop-client folder.
+
+   Running code locally using ng serve will not use the database, but the calls will be intercepted by [FakeBackendInterceptor](https://github.com/ArtjomsPorss/carshop/blob/master/car-shop-client/src/app/dev-infrastructure/http-interceptor.ts)
+   
+   Build angular code using ng build --prod
